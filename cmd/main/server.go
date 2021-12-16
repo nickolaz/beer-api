@@ -4,6 +4,7 @@ import (
 	"beer-api/internal/logs"
 	"github.com/go-chi/chi"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -12,8 +13,9 @@ type MyServer struct {
 }
 
 func NewServer(mux *chi.Mux) *MyServer {
+	port := os.Getenv("SERVER_PORT")
 	s := &http.Server{
-		Addr:              ":9000",
+		Addr:              ":" + port,
 		Handler:           mux,
 		ReadHeaderTimeout: 10 * time.Second,
 		WriteTimeout:      10 * time.Second,

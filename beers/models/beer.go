@@ -10,6 +10,9 @@ type Beer struct {
 	Id          uint64  `json:"id"`
 	Name        string  `json:"name"`
 	Price       float64 `json:"price"`
+	Currency    string  `json:"currency"`
+	Brewery     string  `json:"brewery"`
+	Country     string  `json:"country"`
 	Description string  `json:"description"`
 }
 
@@ -17,7 +20,14 @@ type Beer struct {
 type CreateBeerCMD struct {
 	Name        string  `json:"name"`
 	Price       float64 `json:"price"`
+	Currency    string  `json:"currency"`
+	Brewery     string  `json:"brewery"`
+	Country     string  `json:"country"`
 	Description string  `json:"description"`
+}
+
+type ErrorMsg struct {
+	Msg string `json:"msg"`
 }
 
 // Validate function for validate a beer model

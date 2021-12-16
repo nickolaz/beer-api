@@ -24,6 +24,16 @@ func ParseRequest(r *http.Request) *models.CreateBeerCMD {
 	return &beer
 }
 
+// SaveBeerHandler godoc
+// @Summary      Create a beer
+// @Description  get a beer
+// @Tags         beers
+// @Accept       json
+// @Produce      json
+// @Param        beer  body      models.CreateBeerCMD  true  "Create Beer Structure"
+// @Success      200      {object}  models.Beer
+// @Failure      400      {object}  models.ErrorMsg
+// @Router       /beer [post]
 func (b *CreateBeerHandler) SaveBeerHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-type", "application/json")
 	beer := ParseRequest(r)
